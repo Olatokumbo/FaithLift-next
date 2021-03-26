@@ -1,0 +1,206 @@
+/* .vblock__bover {
+	background: linear-gradient(180deg, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.vblock__tover {
+	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 15%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+.banner{
+    height: 50vh;
+}
+
+.bannerImage{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.fadeBottom {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: -89px;
+    height: 5.4rem;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(37, 37, 37, 0.61),
+      #111
+    );
+  }
+.movieInfo{
+    background-color: #1C1C1C;
+        /* height: 100%; */
+}
+.movieContent{
+    /* background-color: #1C1C1C; */
+    display: flex;
+    position: relative;
+    padding: 0 0.5rem;
+}
+.posterImage{
+    height: 300px;
+    width:auto;
+    /* max-height: 300px; */
+    /* max-width: 13rem; */
+    display: inline-block;
+    margin-top: -110px;
+    margin-right: 1rem;
+    margin-left: calc(100vw - 96%);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+.movieDetails{
+    /* display: inline; */
+    /* position: absolute; */
+    /* background: red; */
+    padding: 0.5rem;
+    /* width: 100%; */
+    /* height: 11.9rem; */
+    height: fit-content;
+}
+
+.movieDetailsContainer{
+    display: flex;
+}
+.movieDetailsLeft{
+    flex: 2;
+}
+
+.movieDetailsRight{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+.movieTime{
+    display: flex;
+}
+.movieTime > *{
+    margin-right: 0.4rem !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    font-weight: lighter !important;
+}
+.movieTitle{
+    color: white;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+.movieDescription{
+    color: white !important;
+    max-width: 75% !important;
+    font-size: 0.9rem !important;
+}
+
+.movieStaff{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+}
+.staffTitle{
+    color: #878787 !important;
+}
+.staffName{
+    margin-left: 10px !important;
+    max-width: 80% !important;
+    color: white !important;
+    font-size: 0.9rem !important;
+}
+
+.recommendation{
+    margin-top: 2rem;
+    padding:  2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recommendHeader{
+    font-size: 1.5rem !important;
+    color: white !important;
+    font-weight: bold !important;
+    align-self: flex-start;
+}
+
+.ytBtn {
+    background-color: rgba(255, 25, 25, 0.856) !important;
+    width: fit-content !important;
+    font-size: 0.7rem !important;
+    text-transform: capitalize !important;
+    display: inline-block;
+    margin: -7rem 0 0 0 !important;
+    color: white !important;
+  }
+
+.similarMoviesList{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+@media only screen and (max-width: 986px){
+    .movieDetailsContainer{
+        flex-direction: column;
+    }
+    .similarMoviesList{
+        grid-template-columns: auto auto auto;
+    }
+    /* .recommendation{
+        margin-top: 8rem;
+    } */
+}
+
+@media only screen and (max-width: 760px){
+    .similarMoviesList{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width:650px){
+    .banner{
+        height: 30vh;
+    }
+    .posterImage{
+        width: unset;
+        height: unset;
+        max-height: 300px;
+        max-width: 9rem;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .movieContent{
+        flex-direction: column;
+    }
+    .movieDetails{
+        text-align: center;
+    }
+    .movieTime{
+        justify-content: center;
+    }
+    .movieDescription{
+        margin: auto !important;
+    }
+    .staffName{
+        text-align: initial !important;
+    }
+    .ytBtn{
+        margin: 0.5rem 0 !important;
+    }
+}
+@media only screen and (max-width: 480px){
+    .similarMoviesList{
+        grid-template-columns: auto;
+    }
+}

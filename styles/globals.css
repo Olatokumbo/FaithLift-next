@@ -22,6 +22,9 @@ a{
 li{
   list-style: none;
 }
+li:hover{
+  cursor: pointer;
+}
 ul{
   margin: 0
 }

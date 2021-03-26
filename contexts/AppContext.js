@@ -3,15 +3,15 @@ import { createContext, useState } from "react";
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-  const [movies, setMovies] = useState(null);
-  const [poster, setPoster] = useState(null);
-  const [articles, setArticles] = useState(null);
+  const [movies, setMovies] = useState([]);
+  const [poster, setPoster] = useState({});
+  const [articles, setArticles] = useState([]);
   return (
     <AppContext.Provider
       value={{
-        movies: [movies, setMovies],
-        poster: [poster, setPoster],
-        articles: [articles, setArticles],
+        moviesList: [movies, setMovies],
+        posterMain: [poster, setPoster],
+        articlesList: [articles, setArticles],
       }}
     >
       {props.children}

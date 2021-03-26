@@ -2,7 +2,6 @@ import React from "react";
 import style from "../styles/Home.module.css";
 import Header from "../Sections/Header/Header";
 import Layout from "../components/Layout";
-import Footer from "../components/Footer/Footer";
 import Info from "../Sections/Info/Info";
 import About from "../Sections/About/About";
 import Testimonials from "../Sections/Testimonials/Testimonials";
@@ -15,7 +14,6 @@ const Home = () => {
       <About />
       <Testimonials />
       {/* <LatestMovies/> */}
-      {/* <Footer/> */}
     </div>
   );
 };

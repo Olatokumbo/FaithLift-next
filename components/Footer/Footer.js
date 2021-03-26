@@ -24,7 +24,7 @@ const Footer = () => {
         <div className={style.contactInfo}>
           <RoomIcon />
           <Typography>
-            Suite 2, RCCG CRM Business Office, Redemption Camp,
+            Suite 2, RCCG CRM Business Office, Redemption Camp
           </Typography>
         </div>
       </div>

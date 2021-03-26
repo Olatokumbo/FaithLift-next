@@ -1,0 +1,130 @@
+.movies {
+  background: #121212;
+  height: 100rem;
+  /* width: 100vw; */
+  overflow-x: hidden;
+}
+.moviePoster {
+  height: 28rem !important;
+  width: 100%;
+  /* background-color: yellow; */
+  position: relative;
+}
+
+.moviePoster > img {
+  object-fit: cover;
+  width: 100vw;
+  height: inherit;
+  /* transform: scaleX(-1); */
+  filter: brightness(0.8);
+}
+
+.posterContent {
+  z-index: 2;
+  position: absolute;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 4.5rem;
+}
+
+.posterTitle {
+  font-size: 3.5rem !important;
+  font-weight: bold !important;
+}
+
+.posterSubtitle {
+  width: 20rem;
+  line-height: 1.3 !important;
+  font-size: 0.8rem !important;
+}
+
+.ytBtn {
+  background-color: rgba(255, 25, 25, 0.856) !important;
+  width: fit-content !important;
+  font-size: 0.7rem !important;
+  text-transform: capitalize !important;
+  margin: 0.5rem 0 !important;
+  color: white !important;
+}
+
+.fadeBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5.4rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
+}
+
+.movieListContainer {
+  padding: 0.4rem 0;
+  margin-left: 1rem;
+  min-height: calc(100vh - 224px);
+}
+.movieList {
+  margin-bottom: 1rem;
+}
+.listHeader {
+  font-size: 1.5rem !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.posterList {
+  padding: 20px 0;
+  display: flex;
+  /* overflow-y: hidden; */
+  /* overflow-x: scroll; */
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+.poster {
+  max-height: 230px;
+  width: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: transform .45s;
+}
+
+.poster:hover{
+  transform: scale(1.09);
+}
+
+/* ::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #292929 14%, #1f1f1f 64%);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 10px;
+} */
+
+@media only screen and (max-width: 687px){ 
+  .poster{
+      max-height: 170px;
+    }
+} 
+
+@media only screen and (max-width: 403px) {
+  .posterTitle {
+    font-size: 2.5rem !important;
+  }
+  .posterSubtitle {
+    /* font-size: 1rem !important; */
+    width: 100%;
+  }
+}
+
+
