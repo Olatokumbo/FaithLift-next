@@ -1,0 +1,68 @@
+.contactUs{
+    min-height: calc(100vh);
+    width: 98vw;
+    display: flex;
+   
+}
+
+.contactLeft, .contactRight{
+    padding: 2rem;
+}
+.contactLeft{
+    flex: 1;
+    background: url("../public/images/wallpaper1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-blend-mode: luminosity;
+}
+
+.contactRight{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContact{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #ffffffb0;
+    border-radius: 5px;
+    /* width: 26rem; */
+    min-width: calc(100vw - 90%);
+}
+
+.title{
+    font-size: 2rem !important;
+    margin: 0 auto !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    color: rgb(31, 31, 31) !important;
+}
+
+.input {
+    margin: 0.3rem 0 !important;
+    width: 100% !important;
+    background-color: white !important;
+    /* border-radius: 10px !important; */
+  }
+
+.submitBtn{
+    width: fit-content !important;
+    margin: 0.5rem auto !important;
+    background-color: rgb(44, 44, 44) !important;
+}
+
+@media only screen and (max-width:780px){
+    .contactLeft{
+        display: none;
+    }
+    .mainContact{
+        width: calc(100vw - 15%);
+    }
+}
