@@ -1,0 +1,150 @@
+.navbar {
+  height: fit-content;
+  background-color: #161d217c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  transition: 1s;
+}
+
+.navbarRolled {
+  height: fit-content;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  transition: 1s;
+}
+.logo {
+  width: 8rem;
+}
+.logo:hover{
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu,
+.socials {
+  display: flex;
+}
+
+.menuVertical {
+  text-align: center;
+  /* background-color: #10101085; */
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.menu > li,
+.menuVertical > li {
+  margin: 0.8rem 1rem !important;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+
+.menu > li:hover,
+.menuVertical > li:hover {
+  color: #E85E32;
+  cursor: pointer;
+  /* border-bottom: white 2px solid; */
+}
+
+.menu > li > a >p,
+.menuVertical > li > a >p {
+  font-size: 0.9rem !important;
+}
+
+.icon {
+  color: white;
+}
+.icon:hover {
+  color: #E85E32;
+  transform: rotate(40deg);
+  transition: transform 0.6s ;
+}
+
+.hamburger,
+.change {
+  flex-direction: column;
+  display: none;
+}
+.rectangle1,
+.rectangle2,
+.rectangle3 {
+  height: 3px;
+  width: 26px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.change .rectangle2 {
+  opacity: 0;
+}
+
+.change .rectangle1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.change .rectangle3 {
+  -webkit-transform: rotate(45deg) translate(-7px, -8px);
+  transform: rotate(45deg) translate(-7px, -8px);
+}
+
+@media only screen and (max-width: 980px) {
+  .menu > li {
+    margin: 0 0.5rem;
+    color: white;
+    transition: 0.5s;
+  }
+}
+@media only screen and (max-width: 825px) {
+  .socials {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 647px) {
+  /* .logo {
+    width: unset;
+  } */
+  .menu > li {
+    margin: 0 0.5rem;
+    color: white;
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 614px) {
+  .navbar,
+  .navbarRolled {
+    align-items: inherit;
+    flex-direction: column;
+    padding: 1rem !important;
+  }
+  .hamburger,
+  .change {
+    display: flex;
+  }
+  .menu {
+    display: none;
+  }
+  .logo{
+   width: 7rem;
+  }
+}

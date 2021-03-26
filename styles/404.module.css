@@ -1,0 +1,51 @@
+.page404{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #202020;
+    height: 100vh;
+}
+.header{
+    margin: 0.5rem !important;
+    padding: 0 10px;
+}
+
+.title{
+    font-size: 13rem !important;
+    font-weight: bolder !important;
+    background: url("../public/images/wallpaper.jpg");
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: -2rem 0 !important;
+}
+
+.message{
+    font-size: 1.2rem !important;
+    color: gray !important;
+    text-align: center !important;
+}
+
+.subHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subHeaderTitle{
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: white !important;
+}
+
+@media only screen and (max-width: 562px){
+    .message{
+        font-size: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 404px){
+    .title{
+        font-size: 11rem !important;
+    }
+}

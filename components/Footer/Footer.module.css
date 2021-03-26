@@ -1,0 +1,51 @@
+.footer{
+  background-color: #202020;
+}
+.bottomFooter {
+  padding: 1.5rem 0.9rem;
+  background-color: #1a1a1a;
+  /* height: 14rem; */
+  /* box-shadow: 1px 3px 23px -4px rgba(0, 0, 0, 0.8) inset;
+  -webkit-box-shadow: 1px 3px 23px -4px rgba(0, 0, 0, 0.8) inset;
+  -moz-box-shadow: 1px 3px 23px -4px rgba(0, 0, 0, 0.8) inset; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact{
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contactInfo{
+  display: flex;
+  color:  white !important;
+  margin: 0.5rem 0;
+}
+.contactInfo > *{
+  margin-right: 10px !important;
+}
+
+.logo {
+ width: 8rem;
+}
+
+.bottomFooter a:first-child{
+  align-self: baseline !important;
+  margin: auto !important;
+}
+.socials {
+  text-align: end;
+}
+.icon {
+  color: white !important;
+  margin: 0 2px !important;
+}
+
+.copyRight{
+  color: white !important;
+  font-size: 0.8rem !important;
+}
