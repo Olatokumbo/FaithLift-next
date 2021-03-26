@@ -5,19 +5,21 @@ import Footer from "./Footer/Footer";
 const Layout = (props) => {
   return (
     <>
-      <Head>
+      <Head lang="en">
         <title>Faith-Lift Productions</title>
-        <meta title="The Official Site of FaithLift Productions" />
+        <meta
+          name="Description"
+          content="Pisteuo Faithlift productions sets to bring massive change and transformation into the film industry in other to uphold sanity and moral values of our dear nation."
+        ></meta>
+        <meta title="The Official Site for FaithLift Productions" />
       </Head>
-      <main style={{overflow: "hidden"}}>
+      <main style={{ overflow: "hidden" }}>
         <Navbar />
-        <div>
-            {props.children}
-        </div>
-        <Footer/>
+        <div>{props.children}</div>
+        <Footer />
       </main>
     </>
   );
 };
 
-export default Layout
+export default Layout;
