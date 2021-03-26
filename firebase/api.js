@@ -40,7 +40,7 @@ export const getArticles = (category) => {
 
 export const getMovies = () => {
   const moviesList = [];
-  let poster ={};
+  let poster = {};
   return firestore
     .collection("movies")
     .get()
@@ -48,11 +48,38 @@ export const getMovies = () => {
       querySnapshot.forEach((doc) => {
         if (doc.id !== "poster")
           moviesList.push({ ...{ id: doc.id }, ...doc.data() });
-        else poster={ id: doc.id, ...doc.data() };
+        else poster = { id: doc.id, ...doc.data() };
       });
     })
     .then(() => {
-      const data = {moviesList, poster};
-      return JSON.stringify(data)
+      const data = { moviesList, poster };
+      return JSON.stringify(data);
     });
+};
+
+export const getMovieList = () => {
+  const moviesList = [];
+  return firestore
+    .collection("movies")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.id !== "poster")
+          moviesList.push({ ...{ id: doc.id }, ...doc.data() });
+      });
+    })
+    .then(() => {
+      return JSON.stringify(moviesList);
+    });
+};
+
+export const getMovieInfo = (movieId) => {
+  return firestore
+    .collection("movies")
+    .doc(movieId)
+    .get()
+    .then((snapshot) => {
+    return JSON.stringify(snapshot.data());
+    })
+    .catch((err) => JSON.stringify(Error(err.message)));
 };
