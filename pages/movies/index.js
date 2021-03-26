@@ -1,35 +1,32 @@
-import { useEffect, useState, useContext } from "react";
-// import Poster from "../../assets/images/poster.png";
-// import Movie from "../../assets/images/jailer.jpg";
+// import { useEffect, useState, useContext } from "react";
 import { Typography, Button } from "@material-ui/core";
 import Link from "next/link";
-// import { firestore } from "../../firebase/firebase";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { AppContext } from "../../contexts/AppContext";
+// import { AppContext } from "../../contexts/AppContext";
+import { getMovies } from "../../firebase/api";
 import style from "../../styles/Movies.module.css";
 
-const Movies = () => {
-  const { moviesList, posterMain } = useContext(AppContext);
-  const [movies, setMovies] = moviesList;
-  const [poster, setPoster] = posterMain;
-  // const [movies, setMovies] = useState(null);
-  const [loadingState, setLoadingState] = useState(false);
+const Movies = ({movieData: {moviesList, poster}}) => {
   return (
     <div className={style.movies}>
       <div className={style.moviePoster}>
-       {movies &&  <div className={style.posterContent}>
-          <Typography className={style.posterTitle}>{poster?.title}</Typography>
-          <Typography className={style.posterSubtitle}>
-            {poster?.info}
-          </Typography>
-          <Button
-            className={style.ytBtn}
-            variant="contained"
-            onClick={() => window.open(`${poster?.youtubeUrl}`, "_blank")}
-          >
-            Watch on YouTube
-          </Button>
-        </div>}
+        {moviesList && (
+          <div className={style.posterContent}>
+            <Typography className={style.posterTitle}>
+              {poster?.title}
+            </Typography>
+            <Typography className={style.posterSubtitle}>
+              {poster?.info}
+            </Typography>
+            <Button
+              className={style.ytBtn}
+              variant="contained"
+              onClick={() => window.open(`${poster?.youtubeUrl}`, "_blank")}
+            >
+              Watch on YouTube
+            </Button>
+          </div>
+        )}
         <img src={poster?.poster} alt="poster" />
         <div className={style.fadeBottom}></div>
       </div>
@@ -37,19 +34,15 @@ const Movies = () => {
         <div className={style.movieList}>
           <Typography className={style.listHeader}>OUR FILMS</Typography>
           <div className={style.posterList}>
-            {loadingState ? (
-              <CircularProgress />
-            ) : (
-              movies?.map((movie) => (
-                <Link key={movie.id} href={`/movies/${movie.id}`}>
-                  <img
-                    className={style.poster}
-                    src={movie.poster}
-                    alt={movie.title}
-                  />
-                </Link>
-              ))
-            )}
+            {moviesList?.map((movie) => (
+              <Link key={movie.id} href={`/movies/${movie.id}`}>
+                <img
+                  className={style.poster}
+                  src={movie.poster}
+                  alt={movie.title}
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -58,3 +51,14 @@ const Movies = () => {
 };
 
 export default Movies;
+
+export async function getStaticProps() {
+  let data = await getMovies();
+  data = JSON.parse(data);
+  return {
+    props: {
+      movieData: data
+    },
+    revalidate: 1000,
+  };
+}

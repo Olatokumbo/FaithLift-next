@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Typography, Button } from "@material-ui/core";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
 import Link from "next/link";
-// import { firestore } from "../../firebase/firebase";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import style from "../../styles/Articles.module.css";
 
@@ -12,36 +11,6 @@ const Articles = () => {
   const [category, setCategory] = useState("all");
   const [lastArticle, setLastArticle] = useState(null);
   const [buttonState, setButtonState] = useState(false); 
-//   useEffect(() => {
-//     setButtonState(true);
-//     setLoadingState(true);
-//     setLastArticle(null);
-//     const articlesList = [];
-//     let query;
-//     if (category === "all")
-//       query = firestore.collection("articles");
-//     else 
-//       query = firestore.collection("articles").where("category", "==", category);
-//     query
-//       .orderBy('publishedDate', 'desc')
-//       .limit(4)
-//       .get()
-//       .then((querySnapshot) => {
-//         querySnapshot.forEach((doc) => {
-//           articlesList.push({ ...{ id: doc.id }, ...doc.data() });
-//         });
-//         setLastArticle(querySnapshot.docs[querySnapshot.docs.length - 1]);
-//         if(querySnapshot.docs.length>0)
-//         setButtonState(false);
-//       })
-//       .then(() => {
-//         setArticles(articlesList);
-//         console.log("Fetching...");
-//         if(articlesList){
-//           setLoadingState(false);
-//         }
-//       });
-//   }, [category]);
 
   const next = (lastArticle) =>{
     // const articlesList = [];
