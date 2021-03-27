@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
-// import { firestore } from "../../firebase/firebase";
+import { getArticleInfo, getArticles } from "../../firebase/api";
 import moment from "moment";
-import {useRouter} from "next/router";
 import style from "../../styles/ArticleInfo.module.css";
 
-const ArticleInfo = () => {
-    const router = useRouter(); 
-    const {articleId} = router.query;
-    console.log(articleId);
-  const [article, setArticle] = useState(null);
+const ArticleInfo = ({article}) => {
       return (
         <div className={style.article}>
           <div className={style.articleInfo}>
@@ -23,11 +17,11 @@ const ArticleInfo = () => {
                 </Typography>
                 <Typography className={style.articleDate}>
                   Published Date:{" "}
-                  {moment(article?.publishedDate.toDate()).format("MM/DD/YYYY")}
+                  {moment(Date(article?.publishedDate.seconds)).format("MM/DD/YYYY")}
                 </Typography>
               </div>
               <div className={style.articleContent}>
-                {article?.message.map((message, index) => (
+                {article?.message?.map((message, index) => (
                   <Typography key={index} className={style.articleParagraph}>
                     {message}
                   </Typography>
@@ -40,3 +34,27 @@ const ArticleInfo = () => {
 };
 
 export default ArticleInfo;
+
+export async function getStaticProps({params}){
+  let res = await getArticleInfo(params.id);
+  if(!res){
+    return {notFound: true}
+  }
+  let article = JSON.parse(res);
+  return{
+    props:{
+      article
+    }
+  }
+}
+
+export async function getStaticPaths(){
+  const res = await getArticles();
+  const articles =res;
+  const paths = articles.map((article) => ({
+    params: { id: article.id.toString() },
+  }));
+  console.log(paths);
+
+  return { paths, fallback: "blocking" };
+}

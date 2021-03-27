@@ -135,7 +135,7 @@
   .navbarRolled {
     align-items: inherit;
     flex-direction: column;
-    padding: 1rem !important;
+    padding: 0.5rem !important;
   }
   .hamburger,
   .change {

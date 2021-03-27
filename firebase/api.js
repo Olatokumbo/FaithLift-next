@@ -19,12 +19,9 @@ export const latestMovies = () => {
   );
 };
 
-export const getArticles = (category) => {
+export const getArticles = () => {
   const articlesList = [];
-  let query;
-  if (category === "all") query = firestore.collection("articles");
-  else
-    query = firestore.collection("articles").where("category", "==", category);
+  let query = firestore.collection("articles");
   return query
     .orderBy("publishedDate", "desc")
     .get()
@@ -37,7 +34,16 @@ export const getArticles = (category) => {
       return articlesList;
     });
 };
-
+export const getArticleInfo = (articleId) =>{
+  return firestore
+      .collection("articles")
+      .doc(articleId)
+      .get()
+      .then((snapshot) => {
+        return JSON.stringify(snapshot.data());
+      })
+      .catch((err) => JSON.stringify(Error(err.message)));
+}
 export const getMovies = () => {
   const moviesList = [];
   let poster = {};
@@ -83,3 +89,4 @@ export const getMovieInfo = (movieId) => {
     })
     .catch((err) => JSON.stringify(Error(err.message)));
 };
+

@@ -85,6 +85,9 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await getMovieInfo(params.id);
+  if(!res){
+    return {notFound: true}
+  }
   const movie = JSON.parse(res);
 
   // Pass post data to the page via props
@@ -97,7 +100,6 @@ export async function getStaticPaths() {
   const paths = movies.map((movie) => ({
     params: { id: movie.id.toString() },
   }));
-  console.log(paths);
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
