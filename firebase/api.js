@@ -24,6 +24,7 @@ export const getArticles = () => {
   let query = firestore.collection("articles");
   return query
     .orderBy("publishedDate", "desc")
+    .limit(4)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -31,7 +32,7 @@ export const getArticles = () => {
       });
     })
     .then(() => {
-      return articlesList;
+      return (articlesList);
     });
 };
 export const getArticleInfo = (articleId) =>{

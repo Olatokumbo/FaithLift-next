@@ -15,7 +15,7 @@ const ArticleCard = ({ data }) => {
         </div>
         <div className={style.articleFooter}>
           <Typography className={style.publishedDate}>
-            Published Date: {moment(data.publishedDate.toDate()).format("MM/DD/YYYY")}
+            Published Date: {moment(Date(data?.publishedDate.seconds)).format("MM/DD/YYYY")}
           </Typography>
           {/* <Button className={style.readBtn} variant="contained">
             ReadMore
