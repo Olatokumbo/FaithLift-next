@@ -7,6 +7,7 @@ import CallIcon from "@material-ui/icons/Call";
 import MailIcon from "@material-ui/icons/Mail";
 import RoomIcon from "@material-ui/icons/Room";
 import Link from "next/link";
+import Fade from "react-reveal/Fade";
 import style from "./Footer.module.css";
 
 const Footer = () => {
@@ -32,43 +33,48 @@ const Footer = () => {
         <Link href="/">
           <img className={style.logo} src="/images/logo.png" alt="logo" />
         </Link>
-        <div className={style.socials}>
-          <IconButton
-            // size="small"
-            onClick={() =>
-              window.open(
-                "https://www.youtube.com/channel/UCbvSvzeLnUrT9XfYqSWeemQ",
-                "_blank"
-              )
-            }
-          >
-            <YouTubeIcon className={style.icon} />
-          </IconButton>
-          <IconButton
-            // size="small"
-            onClick={() =>
-              window.open("https://www.instagram.com/pastorjfodesola", "_blank")
-            }
-          >
-            <InstagramIcon className={style.icon} />
-          </IconButton>
-          <IconButton
-            // size="small"
-            onClick={() =>
-              window.open("https://www.facebook.com/JFOdesola", "_blank")
-            }
-          >
-            <FacebookIcon className={style.icon} />
-          </IconButton>
-          <IconButton
-            // size="small"
-            onClick={() =>
-              window.open("https://twitter.com/pastorjfodesola", "_blank")
-            }
-          >
-            <TwitterIcon className={style.icon} />
-          </IconButton>
-        </div>
+        <Fade top duration={800} distance="20px" cascade>
+          <div className={style.socials}>
+            <IconButton
+              // size="small"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/channel/UCbvSvzeLnUrT9XfYqSWeemQ",
+                  "_blank"
+                )
+              }
+            >
+              <YouTubeIcon className={style.icon} />
+            </IconButton>
+            <IconButton
+              // size="small"
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/pastorjfodesola",
+                  "_blank"
+                )
+              }
+            >
+              <InstagramIcon className={style.icon} />
+            </IconButton>
+            <IconButton
+              // size="small"
+              onClick={() =>
+                window.open("https://www.facebook.com/JFOdesola", "_blank")
+              }
+            >
+              <FacebookIcon className={style.icon} />
+            </IconButton>
+            <IconButton
+              // size="small"
+              onClick={() =>
+                window.open("https://twitter.com/pastorjfodesola", "_blank")
+              }
+            >
+              <TwitterIcon className={style.icon} />
+            </IconButton>
+          </div>
+        </Fade>
         <Typography className={style.copyRight}>
           © Copyright {new Date().getFullYear()} All Rights Reserved.
         </Typography>

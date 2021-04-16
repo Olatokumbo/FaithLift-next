@@ -1,10 +1,13 @@
 import { Typography } from "@material-ui/core";
+import Fade from "react-reveal/Fade";
+import Flip from 'react-reveal/Flip';
 import style from "./Info.module.css";
 const Info = () => {
   return (
     <div className={style.info}>
       <img className={style.bg} src="/images/bg.jpg" alt="bg" />
       <div className={style.mainContent}>
+        <Fade top duration={800} distance="30px" cascade>
         <div className={style.contentLeft}>
           <Typography className={style.header}>
             About Pisteuo Faith-Lift Productions
@@ -29,12 +32,15 @@ const Info = () => {
             out to young people in and outside the country.
           </Typography>
         </div>
-        <div className={style.contentRight}>
+        </Fade>
+       <Flip top duration={800} cascade>
+       <div className={style.contentRight}>
           <img className={style.image} src="/images/image.png" alt="placeholder"  />
           <img className={style.image} src="/images/about2.jpg" alt="placeholder" />
           <img className={style.image} src="/images/about3.jpg" alt="placeholder" />
           <img className={style.image} src="/images/media.jpeg" alt="placeholder" />
         </div>
+       </Flip>
       </div>
     </div>
   );

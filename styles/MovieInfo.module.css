@@ -101,6 +101,7 @@
 .movieDescription{
     color: white !important;
     max-width: 75% !important;
+    text-align: justify !important;
     font-size: 0.9rem !important;
 }
 

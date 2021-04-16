@@ -37,6 +37,8 @@
   font-family: "Montserrat", sans-serif !important;
   font-size: 0.9rem !important;
   line-height: inherit !important;
+  margin: auto !important;
+  max-width: 31rem;
 }
 
 .fadeBottom {
