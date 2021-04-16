@@ -1,7 +1,7 @@
 import { Typography, Button } from "@material-ui/core";
 import style from "./ArticleCard.module.css";
 import moment from "moment";
-// import { truncate } from "../../utils/truncate";
+import { truncate } from "../../utils/truncate";
 const ArticleCard = ({ data }) => {
   return (
     <div className={style.articleCard}>
@@ -11,7 +11,7 @@ const ArticleCard = ({ data }) => {
       <div className={style.articleContent}>
         <div>
           <Typography className={style.title}>{data.title}</Typography>
-          {/* <Typography className={style.articleMessage}>{truncate(data.message[0])}</Typography> */}
+          <Typography className={style.articleMessage}>{truncate(data.message[0])}</Typography>
         </div>
         <div className={style.articleFooter}>
           <Typography className={style.publishedDate}>

@@ -36,11 +36,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 233px;
 }
-
+.menu{
+  margin: auto;
+}
 .menu,
 .socials {
   display: flex;
+  padding: 0;
 }
 
 .menuVertical {
@@ -114,6 +118,9 @@
   }
 }
 @media only screen and (max-width: 825px) {
+  .menu{
+    margin: 0;
+  }
   .socials {
     display: none;
   }
@@ -146,5 +153,8 @@
   }
   .logo{
    width: 7rem;
+  }
+  .header{
+    width: unset;
   }
 }
