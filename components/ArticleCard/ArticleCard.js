@@ -1,6 +1,6 @@
 import { Typography, Button } from "@material-ui/core";
 import style from "./ArticleCard.module.css";
-import moment from "moment";
+const { format } = require("date-fns");
 import { truncate } from "../../utils/truncate";
 const ArticleCard = ({ data }) => {
   return (
@@ -15,7 +15,7 @@ const ArticleCard = ({ data }) => {
         </div>
         <div className={style.articleFooter}>
           <Typography className={style.publishedDate}>
-            Published Date: {moment(Date(data?.publishedDate.seconds)).format("MM/DD/YYYY")}
+            Published Date: {format(new Date(data?.publishedDate.seconds*1000), "MMM d, yyyy")}
           </Typography>
           {/* <Button className={style.readBtn} variant="contained">
             ReadMore
