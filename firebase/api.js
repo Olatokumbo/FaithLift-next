@@ -5,7 +5,7 @@ export const latestMovies = () => {
   return (
     firestore
       .collection("movies")
-      // .orderBy("releasedDate", "asc")
+      .orderBy("releasedDate", "asc")
       .limit(2)
       .get()
       .then((querySnapShot) => {

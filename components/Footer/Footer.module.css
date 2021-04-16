@@ -41,10 +41,14 @@
   text-align: end;
 }
 .icon {
-  color: white !important;
-  margin: 0 2px !important;
+  color: white;
+  margin: 0 2px;
 }
-
+.icon:hover {
+  color: #E85E32 ;
+  transform: rotate(20deg);
+  transition: transform 0.6s ;
+}
 .copyRight{
   color: white !important;
   font-size: 0.8rem !important;
