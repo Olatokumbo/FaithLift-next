@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 import style from "./TestimonialCard.module.css";
 const TestimonialCard = () => {
   return (
-    <Fade top duration={800} distance="80px" cascade>
+    <Fade top duration={800} distance="30px" cascade>
       <div className={style.testimonialCard}>
         <img src="/images/main.jpg" alt="profile" />
         <div>

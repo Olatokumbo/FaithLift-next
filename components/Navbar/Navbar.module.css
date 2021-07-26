@@ -142,7 +142,7 @@
   .navbarRolled {
     align-items: inherit;
     flex-direction: column;
-    padding: 0.5rem !important;
+    padding: 1rem !important;
   }
   .hamburger,
   .change {
@@ -152,7 +152,7 @@
     display: none;
   }
   .logo{
-   width: 7rem;
+   width: 6rem;
   }
   .header{
     width: unset;
