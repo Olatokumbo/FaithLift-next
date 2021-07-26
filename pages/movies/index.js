@@ -1,44 +1,43 @@
-// import { useEffect, useState, useContext } from "react";
 import { Typography, Button } from "@material-ui/core";
 import Link from "next/link";
-import CircularProgress from "@material-ui/core/CircularProgress";
-// import { AppContext } from "../../contexts/AppContext";
-import { getMovies } from "../../firebase/api";
+import { createClient } from "contentful";
 import style from "../../styles/Movies.module.css";
 
-const Movies = ({movieData: {moviesList, poster}}) => {
+const Movies = ({ movies, cover }) => {
   return (
     <div className={style.movies}>
       <div className={style.moviePoster}>
-        {moviesList && (
-          <div className={style.posterContent}>
-            <Typography className={style.posterTitle}>
-              {poster?.title}
-            </Typography>
-            <Typography className={style.posterSubtitle}>
-              {poster?.info}
-            </Typography>
-            <Button
-              className={style.ytBtn}
-              variant="contained"
-              onClick={() => window.open(`${poster?.youtubeUrl}`, "_blank")}
-            >
-              Watch on YouTube
-            </Button>
-          </div>
-        )}
-        <img src={poster?.poster} alt="poster" />
+        <div className={style.posterContent}>
+          <Typography className={style.posterTitle}>
+            {cover.fields.title}
+          </Typography>
+          <Typography className={style.posterSubtitle}>
+            {cover.fields.subtitle}
+          </Typography>
+          {/* <Button
+            className={style.ytBtn}
+            variant="contained"
+            onClick={() => window.open(`${poster?.youtubeUrl}`, "_blank")}
+          >
+            Watch on YouTube
+          </Button> */}
+        </div>
+
+        <img
+          src={`https:${cover.fields.coverPhoto.fields.file.url}`}
+          alt="poster"
+        />
         <div className={style.fadeBottom}></div>
       </div>
       <div className={style.movieListContainer}>
         <div className={style.movieList}>
           <Typography className={style.listHeader}>OUR FILMS</Typography>
           <div className={style.posterList}>
-            {moviesList?.map((movie) => (
-              <Link key={movie.id} href={`/movies/${movie.id}`}>
+            {movies?.map((movie) => (
+              <Link key={movie.id} href={`/movies/${movie.fields.slug}`}>
                 <img
                   className={style.poster}
-                  src={movie.poster}
+                  src={`https:${movie.fields.poster.fields.file.url}`}
                   alt={movie.title}
                 />
               </Link>
@@ -52,13 +51,25 @@ const Movies = ({movieData: {moviesList, poster}}) => {
 
 export default Movies;
 
-export async function getStaticProps() {
-  let data = await getMovies();
-  data = JSON.parse(data);
+export const getStaticProps = async () => {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+  const response1 = await client.getEntries({
+    content_type: "faithLift",
+    order: "-sys.createdAt",
+  });
+
+  const response2 = await client.getEntries({
+    content_type: "cover",
+    order: "-sys.createdAt",
+  });
   return {
     props: {
-      movieData: data
+      movies: response1.items,
+      cover: response2.items[0],
     },
-    revalidate: 1000,
+    revalidate: 1,
   };
-}
+};

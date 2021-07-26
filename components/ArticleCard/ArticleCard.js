@@ -6,16 +6,19 @@ const ArticleCard = ({ data }) => {
   return (
     <div className={style.articleCard}>
       <div className={style.banner}>
-        <img src={data.poster} alt="Poster" />
+        <img src={`https:${data.fields.poster.fields.file.url}`} alt="Poster" />
       </div>
       <div className={style.articleContent}>
         <div>
-          <Typography className={style.title}>{data.title}</Typography>
-          <Typography className={style.articleMessage}>{truncate(data.message[0])}</Typography>
+          <Typography className={style.title}>{data.fields.title}</Typography>
+          <Typography className={style.articleMessage}>
+            {truncate(data.fields.message.content[0].content[0].value)}
+          </Typography>
         </div>
         <div className={style.articleFooter}>
           <Typography className={style.publishedDate}>
-            Published Date: {format(new Date(data?.publishedDate.seconds*1000), "MMM d, yyyy")}
+            Published Date:{" "}
+            {format(new Date(data.fields.publishedDate), "MMMM dd, yyyy")}
           </Typography>
           {/* <Button className={style.readBtn} variant="contained">
             ReadMore
