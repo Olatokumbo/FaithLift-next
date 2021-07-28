@@ -16,18 +16,21 @@ const ArticleInfo = ({ article }) => {
         <div className={style.banner}>
           <img
             className={style.bannerPhoto}
-            src={`https:${article.fields.poster.fields.file.url}`}
+            src={`https:${article?.fields?.poster?.fields?.file.url}`}
             alt="banner"
           />
         </div>
         <div className={style.mainArticle}>
           <div className={style.articleHeader}>
             <Typography className={style.articleTitle}>
-              {article.fields.title}
+              {article?.fields?.title}
             </Typography>
             <Typography className={style.articleDate}>
               Published Date:{" "}
-              {format(new Date(article.fields.publishedDate), "MMMM dd, yyyy")}
+              {format(
+                new Date(article?.fields?.publishedDate),
+                "MMMM dd, yyyy"
+              )}
             </Typography>
           </div>
           <div className={style.articleContent}>
@@ -36,7 +39,7 @@ const ArticleInfo = ({ article }) => {
                 {message}
               </Typography>
             ))} */}
-            <div>{documentToReactComponents(article.fields.message)}</div>
+            <div>{documentToReactComponents(article?.fields?.message)}</div>
           </div>
         </div>
       </div>
@@ -58,7 +61,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 }
 
