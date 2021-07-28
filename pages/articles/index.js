@@ -32,7 +32,6 @@ export const getStaticProps = async () => {
     content_type: "article",
     order: "-sys.createdAt",
   });
-  console.log(response.items);
   return {
     props: {
       articles: response.items,

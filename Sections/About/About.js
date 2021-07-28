@@ -8,7 +8,7 @@ const About = () => {
         <Fade top duration={800} distance="30px" cascade>
         <div className={style.aboutContentLeft}>
         <Typography className={style.title}>
-        Our Vision
+        Our Mission & Vision
         </Typography>
         <Fade top duration={800} distance="30px" cascade>
         <ul>
@@ -25,6 +25,7 @@ const About = () => {
             <img className={style.ceo} src="/images/vision.svg" alt="main"/>
         </div>
       </div>
+      <div className={style.fadeBottom}></div>
     </div>
   );
 };

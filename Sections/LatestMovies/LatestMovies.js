@@ -18,11 +18,11 @@ const LatestMovies = (props) => {
                 <Typography className={style.year}>
                   {format(new Date(movie.fields.releaseDate), " MMMM yyyy")}
                 </Typography>
-                <Link href={`/movies/${movie.fields.slug}`}>
+                {/* <Link href={`/movies/${movie.fields.slug}`}>
                   <Button className={style.readBtn} variant="contained">
                     View More
                   </Button>
-                </Link>
+                </Link> */}
               </div>
               <img
                 className={style.moviePoster}

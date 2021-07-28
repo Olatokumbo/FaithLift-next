@@ -80,22 +80,46 @@ const Navbar = () => {
         <ul className={style.socials}>
           <li>
             <IconButton>
-              <InstagramIcon className={style.icon} />
+              <YouTubeIcon
+                className={style.icon}
+                onClick={() =>
+                  window.open(
+                    "https://www.youtube.com/channel/UCbvSvzeLnUrT9XfYqSWeemQ",
+                    "_blank"
+                  )
+                }
+              />
             </IconButton>
           </li>
           <li>
             <IconButton>
+              <InstagramIcon
+                className={style.icon}
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/faithlifttv/",
+                    "_blank"
+                  )
+                }
+              />
+            </IconButton>
+          </li>
+          <li>
+            {/* <IconButton>
               <TwitterIcon className={style.icon} />
-            </IconButton>
+            </IconButton> */}
           </li>
           <li>
             <IconButton>
-              <FacebookIcon className={style.icon} />
-            </IconButton>
-          </li>
-          <li>
-            <IconButton>
-              <YouTubeIcon className={style.icon} />
+              <FacebookIcon
+                className={style.icon}
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/faithliftprod",
+                    "_blank"
+                  )
+                }
+              />
             </IconButton>
           </li>
         </ul>

@@ -34,13 +34,14 @@ const Movies = ({ movies, cover }) => {
           <Typography className={style.listHeader}>OUR FILMS</Typography>
           <div className={style.posterList}>
             {movies?.map((movie) => (
-              <Link key={movie.id} href={`/movies/${movie.fields.slug}`}>
-                <img
-                  className={style.poster}
-                  src={`https:${movie.fields.poster.fields.file.url}`}
-                  alt={movie.title}
-                />
-              </Link>
+              // <Link key={movie.id} href={`/movies/${movie.fields.slug}`}>
+              <img
+                key={movie.id}
+                className={style.poster}
+                src={`https:${movie.fields.poster.fields.file.url}`}
+                alt={movie.title}
+              />
+              // </Link>
             ))}
           </div>
         </div>
@@ -58,12 +59,11 @@ export const getStaticProps = async () => {
   });
   const response1 = await client.getEntries({
     content_type: "faithLift",
-    order: "-sys.createdAt",
+    order: "sys.createdAt",
   });
 
   const response2 = await client.getEntries({
     content_type: "cover",
-    order: "-sys.createdAt",
   });
   return {
     props: {

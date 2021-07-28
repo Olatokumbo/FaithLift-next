@@ -104,7 +104,11 @@
     text-align: justify !important;
     font-size: 0.9rem !important;
 }
-
+.movieDate{
+ color: #878787 !important;
+ font-size: 1,2rem !important;
+ margin-bottom: 1rem !important;
+}
 .movieStaff{
     display: flex;
     align-items: baseline;

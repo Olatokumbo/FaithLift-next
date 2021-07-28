@@ -15,7 +15,7 @@ const Home = (props) => {
       <Header />
       <Info />
       <About />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <LatestMovies latestMovies={latestMovies} />
     </div>
   );
@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
   });
   const response = await client.getEntries({
     content_type: "faithLift",
-    order: "-sys.createdAt",
+    order: "sys.createdAt",
     limit: 2,
   });
   return {

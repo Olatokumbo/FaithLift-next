@@ -50,7 +50,7 @@ const Footer = () => {
               // size="small"
               onClick={() =>
                 window.open(
-                  "https://www.instagram.com/pastorjfodesola",
+                  "https://www.instagram.com/faithlifttv/",
                   "_blank"
                 )
               }
@@ -60,19 +60,19 @@ const Footer = () => {
             <IconButton
               // size="small"
               onClick={() =>
-                window.open("https://www.facebook.com/JFOdesola", "_blank")
+                window.open("https://www.facebook.com/faithliftprod", "_blank")
               }
             >
               <FacebookIcon className={style.icon} />
             </IconButton>
-            <IconButton
+            {/* <IconButton
               // size="small"
               onClick={() =>
-                window.open("https://twitter.com/pastorjfodesola", "_blank")
+                window.open("#", "_blank")
               }
             >
               <TwitterIcon className={style.icon} />
-            </IconButton>
+            </IconButton> */}
           </div>
         </Fade>
         <Typography className={style.copyRight}>

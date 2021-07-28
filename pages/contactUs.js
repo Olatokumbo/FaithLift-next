@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
 import axios from "axios";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import emailjs from "emailjs-com";
 import style from "../styles/ContactUs.module.css";
 
 const ContactUs = () => {
@@ -42,6 +43,7 @@ const ContactUs = () => {
             size="small"
             label="Full Name"
             variant="filled"
+            autoComplete="off"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
@@ -52,6 +54,7 @@ const ContactUs = () => {
             size="small"
             label="Email address"
             variant="filled"
+            autoComplete="off"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />

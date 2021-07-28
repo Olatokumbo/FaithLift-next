@@ -40,7 +40,7 @@ const MovieInfo = ({ movie }) => {
                 {movie.fields.title}
               </Typography>
               <div className={style.movieTime}>
-                <Typography>
+                <Typography className={style.movieDate}>
                   {format(new Date(movie.fields.releaseDate), "MMMM yyyy")}
                 </Typography>
                 {/* <Typography>{`${movie?.duration?.hours}hr ${movie?.duration?.minutes}mins`}</Typography> */}
