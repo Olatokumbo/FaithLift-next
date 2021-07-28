@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
 import axios from "axios";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import emailjs from "emailjs-com";
 import style from "../styles/ContactUs.module.css";
 
@@ -10,26 +10,31 @@ const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [buttonState, setButtonState] = useState(false);
-  const sendMessage = () =>{
+  const sendMessage = (e) => {
+    e.preventDefault();
     setButtonState(true);
-    axios
-      .post("https://faithlift-api.herokuapp.com/mail", {
-        name,
-        from: email,
-        message
-      })
-      .then(() => {
-        alert("Your message has been sent...");
-        setName("");
-        setEmail("");
-        setMessage("");
-        setButtonState(false);
-      })
-      .catch((err) => {
-        setButtonState(false);
-        alert(err.message);
-      });
-  }
+    emailjs
+      .sendForm(
+        "gmail",
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        e.target,
+        process.env.NEXT_PUBLIC_USER_ID
+      )
+      .then(
+        (result) => {
+          setName("");
+          setEmail("");
+          setMessage("");
+          setButtonState(false);
+          alert("Message Sent, I'll get back to you shortly", result.text);
+        },
+        (error) => {
+          console.log(error);
+          setButtonState(false);
+          alert("An error occured, Plese try again", error.text);
+        }
+      );
+  };
   return (
     <div className={style.contactUs}>
       <div className={style.contactLeft}></div>
@@ -77,7 +82,7 @@ const ContactUs = () => {
           >
             Submit
           </Button>
-          {buttonState && <CircularProgress/>}
+          {buttonState && <CircularProgress />}
         </div>
       </div>
     </div>
