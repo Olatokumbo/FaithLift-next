@@ -7,6 +7,7 @@ import About from "../Sections/About/About";
 import Testimonials from "../Sections/Testimonials/Testimonials";
 import LatestMovies from "../Sections/LatestMovies/LatestMovies";
 import { createClient } from "contentful";
+import Ceo from "../Sections/Ceo/Ceo";
 const Home = (props) => {
   const { latestMovies } = props;
   console.log(latestMovies);
@@ -14,6 +15,7 @@ const Home = (props) => {
     <div className={style.home}>
       <Header />
       <Info />
+      <Ceo />
       <About />
       {/* <Testimonials /> */}
       <LatestMovies latestMovies={latestMovies} />

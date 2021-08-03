@@ -8,11 +8,11 @@ const About = () => {
         <Fade top duration={800} distance="30px" cascade>
         <div className={style.aboutContentLeft}>
         <Typography className={style.title}>
-        Our Mission & Vision
+        Mission & Vision
         </Typography>
         <Fade top duration={800} distance="30px" cascade>
         <ul>
-          <li><Typography>To transform the movie industry with sound moral values production.</Typography></li>
+          <li><Typography>To transform the movie industry with sound moral valued production.</Typography></li>
           <li><Typography>To create platform for young talented youth to discover themselves and fulfill their potential.</Typography></li>
           <li><Typography>To correct the media errors that is eating into our young people today.</Typography></li>
           <li><Typography>To create wealth of opportunity for young people.</Typography></li>

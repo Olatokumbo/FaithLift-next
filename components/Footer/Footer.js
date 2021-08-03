@@ -16,15 +16,15 @@ const Footer = () => {
       <div className={style.contact}>
         <div className={style.contactInfo}>
           <CallIcon />
-          <Typography>885-223-337</Typography>
+          <Typography className={style.pNumber}> 08062428387 / 09058293091</Typography>
         </div>
         <div className={style.contactInfo}>
           <MailIcon />
-          <Typography>faithlift@gmail.com</Typography>
+          <Typography>faithliftproductions@gmail.com</Typography>
         </div>
         <div className={style.contactInfo}>
           <RoomIcon />
-          <Typography>
+          <Typography className={style.address}>
             Suite 2, RCCG CRM Business Office, Redemption Camp
           </Typography>
         </div>
